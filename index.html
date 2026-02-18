@@ -1,172 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1st Anniversary Surprise ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Anniversary Surprise ❤️</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-body {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    min-height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
-}
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
 
-/* Card */
-.card-love {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+        /* Card */
+        .card-love {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.love-title {
-    color: #e91e63;
-    font-weight: bold;
-}
+        .love-title {
+            color: #e91e63;
+            font-weight: bold;
+        }
 
-.btn-love {
-    background: #e91e63;
-    color: white;
-    border: none;
-}
+        .btn-love {
+            background: #e91e63;
+            color: white;
+            border: none;
+        }
 
-.btn-love:hover {
-    background: #c2185b;
-}
+        .btn-love:hover {
+            background: #c2185b;
+        }
 
-.hidden {
-    display: none;
-}
+        .hidden {
+            display: none !important;
+        }
 
-/* Image Layout */
-.image-row {
-    display: flex;
-}
+        /* Image Layout */
+        .image-row {
+            display: flex;
+        }
 
-.image-box {
-    flex: 1;
-    height: 230px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    cursor: pointer;
-}
+        .image-box {
+            flex: 1;
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.4s ease;
-}
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
 
-.image-box img:hover {
-    transform: scale(1.05);
-}
+        .image-box img:hover {
+            transform: scale(1.05);
+        }
 
-@media (max-width:768px) {
-    .image-box {
-        height: 180px;
-    }
-}
+        @media (max-width:768px) {
+            .image-box {
+                height: 180px;
+            }
+        }
 
-/* Click Heart Animation */
-.click-heart {
-    position: fixed;
-    pointer-events: none;
-    font-size: 20px;
-    animation: burst 3s ease-out forwards;
-}
+        /* Heart Animation */
+        .click-heart {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            animation: burst 3s ease-out forwards;
+        }
 
-@keyframes burst {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--x), var(--y)) scale(1.5);
-        opacity: 0;
-    }
-}
-</style>
+        @keyframes burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Audio Button */
+        .audio-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container py-4">
+    <div class="container py-4">
 
-<div id="questionCard" class="card card-love p-3 text-center">
-    <h2 class="love-title mb-3">Our 1st Year Love Journey ❤️</h2>
-    <div id="questionContent"></div>
+        <div id="questionCard" class="card card-love p-3 text-center">
+            <h2 class="love-title mb-3">Our 1st Year Love Journey ❤️</h2>
+            <div id="questionContent"></div>
 
-    <input type="text" id="answerInput" class="form-control my-3" placeholder="Type your answer...">
-    <button class="btn btn-love w-100" onclick="checkAnswer()">Submit 💌</button>
-    <p id="errorMsg" class="text-danger mt-2"></p>
-</div>
+            <input type="text" id="answerInput" class="form-control my-3" placeholder="Type your answer...">
+            <button class="btn btn-love w-100" onclick="checkAnswer()">Submit</button>
+            <p id="errorMsg" class="text-danger mt-2"></p>
+        </div>
 
-<div id="finalPage" class="hidden mt-4">
-    <div class="text-center text-white mb-3">
-        <h1>Happy 1st Anniversary ❤️</h1>
-        <p>365 Days of Love 💖</p>
+        <div id="finalPage" class="hidden mt-4">
+            <div class="text-center text-white mb-3">
+                <h1>Happy 1st Anniversary Mayilu❤️</h1>
+                <p>365 days, countless memories, and one beautiful promise — to stay together forever.</p>
+
+            </div>
+            <div class="row" id="finalContent"></div>
+
+            <div class="text-center text-white mt-4">
+                <p>Happy 1st Anniversary, my love.
+                    With all my heart,
+                    </p>
+                <h5>– Your Lovable Rajesh ❤️</h5>
+            </div>
+        </div>
+
     </div>
-    <div class="row" id="finalContent"></div>
-</div>
 
-</div>
+    <audio id="finalMusic" src="nilothi_song.mp3" loop></audio>
 
-<!-- FINAL AUDIO -->
-<audio id="finalMusic" src="nilothi_song.mp3" loop></audio>
+    <button class="audio-toggle" onclick="toggleAudio()" id="audioBtn">
+        🔊 Music On
+    </button>
 
-<script>
+    <script>
 
-const questions = [
-{
-question: "Where did our beautiful love story begin?",
-answer: "college",
-images: ["1Feb.jpg", "2Mar.jpg"],
-message: "The month our hearts found each other."
-},
-{
-question: "What sweet nickname do I lovingly call you?",
-answer: "mayilu",
-images: ["3Apr.PNG", "4May.jpg"],
-message: "Your nickname makes my heart smile."
-},
-{
-question: "What is our favorite food we enjoy together?",
-answer: "chicken fried rice",
-images: ["5Jun.jpg", "6jul.jpg"],
-message: "Every meal tastes magical with you."
-},
-{
-question: "Which month became our special anniversary month?",
-answer: "february",
-images: ["7Aug.jpg", "8Sep.jpg"],
-message: "Our special month of love."
-},
-{
-question: "What color dress were you wearing when we first met?",
-answer: "yellow",
-images: ["9Oct.jpg", "10Nov.jpg"],
-message: "You glow brighter than sunshine."
-},
-{
-question: "What are we for eternity?",
-answer: "together",
-images: ["11Dec.jpg", "12Jan.jpg"],
-message: "One year complete, forever to go."
-}
-];
+        const questions = [
+            {
+                question: "Where did our beautiful love story begin?",
+                answer: "college",
+                images: ["1Feb.jpg", "2Mar.jpg"],
+                message: "The month our hearts found each other."
+            },
+            {
+                question: "What sweet nickname do I lovingly call you?",
+                answer: "mayilu",
+                images: ["3Apr.PNG", "4May.jpg"],
+                message: "Your nickname makes my heart smile."
+            },
+            {
+                question: "What is our favorite food we enjoy together?",
+                answer: "chicken fried rice",
+                images: ["5Jun.jpg", "6jul.jpg"],
+                message: "Every meal tastes magical with you."
+            },
+            {
+                question: "Which month became our special anniversary month?",
+                answer: "february",
+                images: ["7Aug.jpg", "8Sep.jpg"],
+                message: "Our special month of love."
+            },
+            {
+                question: "What color dress were you wearing when we first met?",
+                answer: "yellow",
+                images: ["9Oct.jpg", "10Nov.jpg"],
+                message: "You glow brighter than sunshine."
+            },
+            {
+                question: "What are we for eternity?",
+                answer: "together",
+                images: ["11Dec.jpg", "12Jan.jpg"],
+                message: "One year complete, forever to go."
+            }
+        ];
 
-let currentIndex = 0;
+        let currentIndex = 0;
+        const music = document.getElementById("finalMusic");
 
-function loadQuestion() {
-    let q = questions[currentIndex];
+        function loadQuestion() {
+            let q = questions[currentIndex];
 
-    document.getElementById("questionContent").innerHTML = `
+            document.getElementById("questionContent").innerHTML = `
         <div class="image-row">
             <div class="image-box" onclick="heartBurst(event)">
                 <img src="${q.images[0]}" alt="">
@@ -179,42 +208,38 @@ function loadQuestion() {
         <p class="text-muted">${q.message}</p>
     `;
 
-    document.getElementById("answerInput").value = "";
-    document.getElementById("errorMsg").innerText = "";
-}
-
-loadQuestion();
-
-function checkAnswer() {
-    let userAnswer = document.getElementById("answerInput").value.trim().toLowerCase();
-    let correctAnswer = questions[currentIndex].answer.toLowerCase();
-
-    if (userAnswer === correctAnswer) {
-        currentIndex++;
-
-        if (currentIndex < questions.length) {
-            setTimeout(loadQuestion, 500);
-        } else {
-            showFinalPage();
+            document.getElementById("answerInput").value = "";
+            document.getElementById("errorMsg").innerText = "";
         }
-    } else {
-        document.getElementById("errorMsg").innerText = "Not correct my love 😘 Try again ❤️";
-    }
-}
 
-function showFinalPage() {
+        loadQuestion();
 
-    document.getElementById("questionCard").classList.add("hidden");
-    document.getElementById("finalPage").classList.remove("hidden");
+        function checkAnswer() {
+            let userAnswer = document.getElementById("answerInput").value.trim().toLowerCase();
+            let correctAnswer = questions[currentIndex].answer.toLowerCase();
 
-    const music = document.getElementById("finalMusic");
-    music.loop = true;
-    music.play();
+            if (userAnswer === correctAnswer) {
+                currentIndex++;
 
-    let finalHTML = "";
+                if (currentIndex < questions.length) {
+                    setTimeout(loadQuestion, 400);
+                } else {
+                    showFinalPage();
+                }
+            } else {
+                document.getElementById("errorMsg").innerText = "Not correct my love 😘 Try again ❤️";
+            }
+        }
 
-    questions.forEach(q => {
-        finalHTML += `
+        function showFinalPage() {
+
+            document.getElementById("questionCard").classList.add("hidden");
+            document.getElementById("finalPage").classList.remove("hidden");
+
+            let finalHTML = "";
+
+            questions.forEach(q => {
+                finalHTML += `
         <div class="col-md-6 mb-4">
             <div class="card card-love p-3 text-center">
                 <div class="image-row">
@@ -229,36 +254,52 @@ function showFinalPage() {
             </div>
         </div>
         `;
-    });
+            });
 
-    document.getElementById("finalContent").innerHTML = finalHTML;
-}
+            document.getElementById("finalContent").innerHTML = finalHTML;
 
-function heartBurst(e) {
+            // SAFE PLAY (handles browser policy)
+            music.volume = 0.8;
+            music.play().catch(() => {
+                console.log("Autoplay blocked. User interaction required.");
+            });
+        }
 
-    for (let i = 0; i < 15; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("click-heart");
-        heart.innerHTML = "❤️";
+        function toggleAudio() {
+            const btn = document.getElementById("audioBtn");
 
-        heart.style.left = e.clientX + "px";
-        heart.style.top = e.clientY + "px";
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "🔊 Music On";
+            } else {
+                music.pause();
+                btn.innerHTML = "🔇 Music Off";
+            }
+        }
 
-        const x = (Math.random() - 0.5) * 200 + "px";
-        const y = (Math.random() - 1) * 200 + "px";
+        function heartBurst(e) {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("click-heart");
+                heart.innerHTML = "❤️";
 
-        heart.style.setProperty("--x", x);
-        heart.style.setProperty("--y", y);
+                heart.style.left = e.clientX + "px";
+                heart.style.top = e.clientY + "px";
 
-        document.body.appendChild(heart);
+                const x = (Math.random() - 0.5) * 200 + "px";
+                const y = (Math.random() - 1) * 200 + "px";
 
-        setTimeout(() => {
-            heart.remove();
-        }, 3000);
-    }
-}
+                heart.style.setProperty("--x", x);
+                heart.style.setProperty("--y", y);
 
-</script>
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+    </script>
 
 </body>
+
 </html>
